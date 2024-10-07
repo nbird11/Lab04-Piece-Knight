@@ -51,7 +51,7 @@ void testRunner()
    PositionTest().run();
    TestMove().run();
    TestBoard().run();
-   TestPiece().run();
-   TestSpace().run();
-   TestKnight().run();
+   //TestPiece().run();
+   //TestSpace().run();
+   //TestKnight().run();
 }

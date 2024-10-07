@@ -1,6 +1,6 @@
 /***********************************************************************
  * Header File:
- *    MOVE
+ *    MOVE 
  * Author:
  *    <your name here>
  * Summary:
@@ -23,6 +23,7 @@ class TestBoard;
  ***************************************************/
 class Move
 {
+   friend class TestBoard;
 public:
    enum MoveType { MOVE, ENPASSANT, CASTLE_KING, CASTLE_QUEEN, MOVE_ERROR };
 
@@ -31,18 +32,22 @@ public:
 
    // constructor
    Move();
-   Move(const string & rhs) {}
-   bool operator<(const Move & rhs) const { return true; }
-   bool operator==(const Move& rhs) const { return true; }
-   void read(const string & rhs) {}
-   string getText() const { return std::string(""); }
-
+   Move(const char* text, const bool& isWhite);
+   Move(const char* text);
+   Move(const string text, const bool& isWhite);
+   bool operator == (const Move& rhs) const;
+   bool operator != (const Move& rhs) const;
+   bool operator <  (const Move & rhs) const { return this->text < rhs.text;     }
+   bool operator <= (const Move & rhs) const { return this->text <= rhs.text;    }
+   bool operator >  (const Move & rhs) const { return this->text > rhs.text;     }
+   bool operator >= (const Move & rhs) const { return this->text >= rhs.text;    }
+   Move& operator = (const char* text) { read(string(text)); return *this; }
 
 private:
-   char letterFromPieceType(PieceType pt)     const { return 'z'; }
-   PieceType pieceTypeFromLetter(char letter) const { return SPACE; }
-
-
+   char letterFromPieceType(PieceType pt)     const;
+   PieceType pieceTypeFromLetter(char letter) const;
+   void read(const string& text);
+   string getText() const;
 
    Position  source;    // where the move originated from
    Position  dest;      // where the move finished

@@ -4,12 +4,11 @@
  * Author:
  *    <your name here>
  * Summary:
- *    A collection of pieces and a small amount of game state
+ *    A collection of pieces and the state of the board
  ************************************************************************/
 
 #pragma once
 
-#include <stack>
 #include <cassert>
 #include "move.h"   // Because we return a set of Move
 
@@ -39,26 +38,28 @@ class Board
    friend TestQueen;
    friend TestKing;
    friend TestBoard;
-public:
 
+public:
+   // constructors
+   //Board();
    // create and destroy the board
    Board(ogstream* pgout = nullptr, bool noreset = false);
-   virtual ~Board()   {  }
+   virtual ~Board() {  }
 
    // getters
-   virtual int  getCurrentMove() const { return -99;      }
-   virtual bool whiteTurn()      const { return false;  }
+   virtual int  getCurrentMove() const { return numMoves; }
+   virtual bool whiteTurn()      const { return numMoves % 2 == 0;    }
    virtual void display(const Position& posHover, const Position& posSelect) const;
    virtual const Piece& operator [] (const Position& pos) const;
 
    // setters
    virtual void free();
    virtual void reset(bool fFree = true);
-   virtual void move(const Move & move);
+   virtual void move(const Move& move);
    virtual Piece& operator [] (const Position& pos);
 
 protected:
-   void  assertBoard();
+   void assertBoard();
 
    Piece * board[8][8];    // the board of chess pieces
    int numMoves;
@@ -69,7 +70,7 @@ protected:
 
 /***************************************************
  * BOARD DUMMY BOARD
- * A board double that does nothing but assert
+ * A board double that does nothing but assert. Will need this for unit tests.
  **************************************************/
 class BoardDummy : public Board
 {
@@ -121,6 +122,8 @@ public:
       else
          return *pSpace;
    }
-   int  getCurrentMove() const { return moveNumber; }
+   int  getCurrentMove() const {
+      return moveNumber;
+   }
 };
 

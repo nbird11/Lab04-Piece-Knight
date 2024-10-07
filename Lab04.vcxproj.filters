@@ -18,31 +18,13 @@
     <ClCompile Include="chess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="move.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="piece.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="position.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="uiDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="uiInteract.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="board.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="testBoard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="testPosition.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="testMove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="test.cpp">
@@ -55,6 +37,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pieceKnight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="board.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="move.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="position.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testPosition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,10 +1,10 @@
 /***********************************************************************
  * Source File:
- *    BOARD 
+ *    BOARD
  * Author:
  *    <your name here>
  * Summary:
- *    A collection of pieces and a small amount of game state
+ *    A collection of pieces and the state of the board
  ************************************************************************/
 
 #include "board.h"
@@ -13,9 +13,11 @@
 #include "piece.h"
 #include "pieceSpace.h"
 #include "pieceKnight.h"
-#include <cassert>
 using namespace std;
 
+
+//// we really REALLY need to delete this.
+//Space space;
 
 /***********************************************
  * BOARD : RESET
@@ -41,8 +43,18 @@ void Board::reset(bool fFree)
          board[c][r] = nullptr;
 }
 
+//Board::Board()
+//{
+//   numMoves = 0;
+//   for (int col = 0; col < 8; col++)
+//   {
+//      for (int row = 0; row < 8; row++)
+//         board[col][row] = nullptr;
+//   }
+//}
+
 // we really REALLY need to delete this.
-Space space(0,0);
+Space space(0, 0);
 
 /***********************************************
 * BOARD : GET
@@ -50,22 +62,23 @@ Space space(0,0);
 ***********************************************/
 const Piece& Board::operator [] (const Position& pos) const
 {
-   return space;
+   return *(board[pos.getCol()][pos.getRow()]);
+   //return space;
 }
 Piece& Board::operator [] (const Position& pos)
 {
-   return space;
+   return *(board[pos.getCol()][pos.getRow()]);
+   //return space;
 }
 
- /***********************************************
- * BOARD : DISPLAY
- *         Display the board
- ***********************************************/
-void Board::display(const Position & posHover, const Position & posSelect) const
+/***********************************************
+* BOARD : DISPLAY
+*         Display the board
+***********************************************/
+void Board::display(const Position& posHover, const Position& posSelect) const
 {
-   
-}
 
+}
 
 /************************************************
  * BOARD : CONSTRUCT
@@ -76,7 +89,6 @@ Board::Board(ogstream* pgout, bool noreset) : pgout(pgout), numMoves(0)
 
 }
 
-
 /************************************************
  * BOARD : FREE
  *         Free up all the allocated memory
@@ -85,7 +97,6 @@ void Board::free()
 {
 
 }
-
 
 /**********************************************
  * BOARD : ASSERT BOARD
@@ -96,20 +107,15 @@ void Board::assertBoard()
 
 }
 
-
-
-
 /**********************************************
  * BOARD : MOVE
  *         Execute a move according to the contained instructions
  *   INPUT move The instructions of the move
  *********************************************/
-void Board::move(const Move & move)
-{  
+void Board::move(const Move& move)
+{
 
 }
-
-
 
 /**********************************************
  * BOARD EMPTY
@@ -121,7 +127,7 @@ BoardEmpty::BoardEmpty() : BoardDummy(), pSpace(nullptr), moveNumber(0)
 {
    pSpace = new Space(0, 0);
 }
-BoardEmpty::~BoardEmpty() 
+BoardEmpty::~BoardEmpty()
 {
    delete pSpace;
 }
