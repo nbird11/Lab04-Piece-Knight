@@ -20,28 +20,10 @@ class TestMove : public UnitTest
 public:
    void run() 
    {
-      // Ticket 4: Move Core
+      // Constructor
       constructor_default();
-      letterFromPieceType_space();
-      letterFromPieceType_pawn();
-      letterFromPieceType_bishop();
-      letterFromPieceType_knight();
-      letterFromPieceType_rook();
-      letterFromPieceType_queen();
-      letterFromPieceType_king();
-      pieceTypeFromLetter_pawn();
-      pieceTypeFromLetter_knight();
-      pieceTypeFromLetter_bishop();
-      pieceTypeFromLetter_rook();
-      pieceTypeFromLetter_king();
-      pieceTypeFromLetter_queen();
-      equal_not();
-      equal_equals();
-      lessthan_lessthan();
-      lessthan_equals();
-      lessthan_greaterthan();
 
-      // Ticket 5: Move Text
+      // Assign
       read_simple();
       read_capture();
       read_enpassant();
@@ -53,11 +35,36 @@ public:
       assign_enpassant();
       assign_castleKing();
       assign_castleQueen();
+
+      // Get Text
       getText_simple();
       getText_capture();
       getText_enpassant();
       getText_castleKing();
       getText_castleQueen();
+
+      // Letter from Piece Type
+      letterFromPieceType_space();
+      letterFromPieceType_pawn();
+      letterFromPieceType_bishop();
+      letterFromPieceType_knight();
+      letterFromPieceType_rook();
+      letterFromPieceType_queen();
+      letterFromPieceType_king();
+
+      // Piece Type from Letter
+      pieceTypeFromLetter_pawn();
+      pieceTypeFromLetter_knight();
+      pieceTypeFromLetter_bishop();
+      pieceTypeFromLetter_rook();
+      pieceTypeFromLetter_king();
+      pieceTypeFromLetter_queen();
+
+      equal_not();
+      equal_equals();
+      lessthan_lessthan();
+      lessthan_equals();
+      lessthan_greaterthan();
 
       report("Move");
    }

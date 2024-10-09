@@ -20,26 +20,32 @@ class PositionTest : public UnitTest
 public:
    void run()
    {
-      // Ticket 1: Position Core
+      reset();
+      // get
       getRow_zero();
       getCol_zero();
       getLocation_zero();
       isValid_zero();
       isInvalid_zero();
+
+
       getRow_middle();
       getCol_middle();
       getLocation_middle();
       isValid_middle();
       isInvalid_middle();
+
       getRow_end();
       getCol_end();
       getLocation_end();
       isValid_end();
       isInvalid_end();
+
       getRow_invalid();
       getCol_invalid();
       isValid_invalid();
       isInvalid_invalid();
+
       getRow_rowInvalid();
       getCol_rowInvalid();
       isValid_rowInvalid();
@@ -48,21 +54,16 @@ public:
       getCol_colInvalid();
       isValid_colInvalid();
       isInvalid_colInvalid();
+
+      // set
       set_col();
       set_row();
       set_both();
-      set_copy();
-      equal_not();
-      equal_equals();
-      lessthan_lessthan();
-      lessthan_equals();
-      lessthan_greaterthan();
-
-      // Ticket 2: Position Text
       set_text();
       set_string();
-       
-      // Ticket 3: Position Movement
+      set_copy();
+
+      // adjust
       adjust_addColumn();
       adjust_addRow();
       adjust_offRight();
@@ -70,6 +71,12 @@ public:
       adjust_offLeft();
       adjust_offBottom();
       adjust_invalid();
+
+      equal_not();
+      equal_equals();
+      lessthan_lessthan();
+      lessthan_equals();
+      lessthan_greaterthan();
       
       report("Position");
    }
