@@ -22,6 +22,7 @@ public:
 
    void run()
    {
+      // Ticket 3
       getMoves_blocked();
       getMoves_capture();
       getMoves_free();

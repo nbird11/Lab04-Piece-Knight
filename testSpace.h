@@ -23,6 +23,7 @@ public:
 
    void run()
    {
+      // Ticket 2
       construct_a1();
       construct_h8();
       construct_a8();

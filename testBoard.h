@@ -40,6 +40,7 @@ public:
       set_h8();
       set_a8();
 
+      // Ticket 4
       // move
       move_knightMove();
       move_knightAttack();

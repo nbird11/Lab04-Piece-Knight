@@ -71,6 +71,7 @@ Piece& Board::operator [] (const Position& pos)
    //return space;
 }
 
+// Ticket 5
 /***********************************************
 * BOARD : DISPLAY
 *         Display the board
