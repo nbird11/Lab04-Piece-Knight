@@ -18,13 +18,40 @@
 using namespace std;
 
 
+Piece::Piece(const Piece& piece)
+{
+   this->nMoves = piece.nMoves;
+   this->fWhite = piece.fWhite;
+   this->position = piece.position;
+   this->lastMove = piece.lastMove;
+}
+
 /************************************************
  * PIECE : ASSIGN
  ***********************************************/
 const Piece & Piece::operator = (const Piece & rhs)
 {
-
+   this->nMoves = rhs.nMoves;
+   this->fWhite = rhs.fWhite;
+   this->position = rhs.position;
+   this->lastMove = rhs.lastMove;
    return *this;
+}
+
+bool Piece::operator==(PieceType pt) const
+{
+   return this->getType() == pt;
+}
+
+bool Piece::operator!=(PieceType pt) const
+{
+   return this->getType() != pt;
+}
+
+void Piece::setLastMove(int currentMove)
+{
+   lastMove = currentMove;
+   nMoves++;
 }
 
 /************************************************

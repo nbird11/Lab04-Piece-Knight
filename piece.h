@@ -51,24 +51,24 @@ public:
    friend TestBoard;
    
    // constructors and stuff
-   Piece(const Position & pos, bool isWhite = true)   {}
-   Piece(int c, int r, bool isWhite = true)           {}
-   Piece(const Piece & piece)                         {}
+   Piece(const Position& pos, bool isWhite = true) : position(pos), fWhite(isWhite), nMoves(0), lastMove(0) {}
+   Piece(int c, int r, bool isWhite = true) : position(Position(c, r)), fWhite(isWhite), nMoves(0), lastMove(0) {}
+   Piece(const Piece& piece);
    virtual ~Piece()                                   {}
    virtual const Piece& operator = (const Piece& rhs);
 
    // getters
-   virtual bool operator == (PieceType pt) const { return true;         }
-   virtual bool operator != (PieceType pt) const { return true;         }
-   virtual bool isWhite()                  const { return true;         }
-   virtual bool isMoved()                  const { return true;         }
-   virtual int  getNMoves()                const { return 9999;         }
-   virtual void decrementNMoves()                {                      }
-   virtual const Position & getPosition()  const { return Position();   }
-   virtual bool justMoved(int currentMove) const { return true;         }
+   virtual bool operator == (PieceType pt) const;
+   virtual bool operator != (PieceType pt) const;
+   virtual bool isWhite()                  const { return fWhite;       }
+   virtual bool isMoved()                  const { return nMoves != 0;  }
+   virtual int  getNMoves()                const { return nMoves;       }
+   virtual void decrementNMoves()                { nMoves--;            }
+   virtual const Position & getPosition()  const { return position;     }
+   virtual bool justMoved(int currentMove) const { return lastMove == currentMove - 1; }
 
    // setter
-   virtual void setLastMove(int currentMove)     {                      }
+   virtual void setLastMove(int currentMove);
 
    // overwritten by the various pieces
    virtual PieceType getType()                                    const = 0;

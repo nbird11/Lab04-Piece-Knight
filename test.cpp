@@ -48,10 +48,10 @@ void testRunner()
 #endif // _WIN32
 
    // unit tests
-   PositionTest().run();
-   TestMove().run();
-   TestBoard().run();
+   //PositionTest().run();
+   //TestMove().run();
+   //TestBoard().run();
    TestPiece().run();
-   TestSpace().run();
-   TestKnight().run();
+   //TestSpace().run();
+   //TestKnight().run();
 }

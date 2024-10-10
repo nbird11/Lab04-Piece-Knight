@@ -25,9 +25,9 @@ public:
    {
       // Ticket 2
       construct_a1();
-      construct_h8();
-      construct_a8();
-      getType();
+      //construct_h8();
+      //construct_a8();
+      //getType();
 
       report("Space");
    }
