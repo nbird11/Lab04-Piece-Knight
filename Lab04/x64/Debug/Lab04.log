@@ -1,10 +1,2 @@
-﻿  board.cpp
-  chess.cpp
-  piece.cpp
-  pieceKnight.cpp
-  test.cpp
-  testBoard.cpp
-  testKnight.cpp
-  testPiece.cpp
-  Generating Code...
+﻿  test.cpp
   Lab04.vcxproj -> C:\Users\natha\School\7_Fall24\1_CSE231 (NhrtncDsgn)\Lab04 PieceKnight\x64\Debug\Lab04.exe
