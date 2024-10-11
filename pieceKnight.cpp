@@ -45,6 +45,8 @@ void Knight::getMoves(set <Move>& moves, const Board& board) const
    {
       r = move[i].getRow();
       c = move[i].getCol();
+      if (!(0 <= r && r <= 7 && 0 <= c && c <= 7))
+         continue;
       if ((fWhite && !board[Position(c, r)].isWhite()) || board[Position(c, r)].getType() == SPACE)
          moves.insert(Move(position, Position(c, r), PieceType::INVALID, board[Position(c, r)].getType(), Move::MoveType::MOVE, isWhite()));
       //if (fWhite && board[Position(c, r)].isWhite())

@@ -131,7 +131,7 @@ void Move::read(const string& text)
 
    this->moveType = MoveType::MOVE;
    promote = PieceType::INVALID;
-   capture = PieceType::INVALID;
+   capture = PieceType::SPACE;
 
    if (this->text.length() < 5)
       return;

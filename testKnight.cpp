@@ -158,7 +158,7 @@ void TestKnight::getMoves_capture()
    knight.getMoves(moves, board);
 
    // VERIFY
-   assertUnit(moves.size() == 8);  // no possible moves
+   assertUnit(moves.size() == 8);
    assertUnit(moves.find(Move("d5e7p")) != moves.end());
    assertUnit(moves.find(Move("d5c7p")) != moves.end());
    assertUnit(moves.find(Move("d5b6p")) != moves.end());
