@@ -172,7 +172,7 @@ string Move::getText() const
    returnText += dest.getRow() + '1';
 
    // captured a piece?
-   if (capture != PieceType::INVALID && moveType != MoveType::ENPASSANT)
+   if (capture != PieceType::INVALID && capture != PieceType::SPACE && moveType != MoveType::ENPASSANT)
       returnText += letterFromPieceType(capture);
 
    // Enpassant?
