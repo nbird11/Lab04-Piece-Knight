@@ -73,7 +73,7 @@ public:
    // overwritten by the various pieces
    virtual PieceType getType()                                    const = 0;
    virtual void display(ogstream * pgout)                         const = 0;
-   void getMoves(set <Move> & moves, const Board & board) const;
+   virtual void getMoves(set <Move> & moves, const Board & board) const;
 
 protected:
 

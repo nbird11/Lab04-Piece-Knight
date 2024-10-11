@@ -23,6 +23,17 @@ Move::Move() : promote(PieceType::INVALID), capture(PieceType::INVALID), moveTyp
 {
 }
 
+Move::Move(const Position& source, const Position dest, PieceType promote, PieceType capture, MoveType moveType, bool isWhite)
+{
+   this->source = source;
+   this->dest = dest;
+   this->promote = promote;
+   this->capture = capture;
+   this->moveType = moveType;
+   this->isWhite = isWhite;
+   this->text = getText();
+}
+
 Move::Move(const char* text, const bool& isWhite)
 {
    read(string(text));
