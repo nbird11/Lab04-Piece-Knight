@@ -44,6 +44,14 @@ public:
    bool operator >= (const Move & rhs) const { return this->text >= rhs.text;    }
    Move& operator = (const char* text) { read(string(text)); return *this; }
 
+   // getters
+   Position getSource()   const { return source;   }
+   Position getDest()     const { return dest;     }
+   bool getIsWhite()      const { return isWhite;  }
+   MoveType getMoveType() const { return moveType; }
+   PieceType getCatpure() const { return capture;  }
+   PieceType getPromote() const { return promote;  }
+   
 private:
    char letterFromPieceType(PieceType pt)     const;
    PieceType pieceTypeFromLetter(char letter) const;

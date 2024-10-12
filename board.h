@@ -48,7 +48,7 @@ public:
 
    // getters
    virtual int  getCurrentMove() const { return numMoves; }
-   virtual bool whiteTurn()      const { return numMoves % 2 == 0;    }
+   virtual bool whiteTurn()      const { return numMoves % 2 == 0; }
    virtual void display(const Position& posHover, const Position& posSelect) const;
    virtual const Piece& operator [] (const Position& pos) const;
 

@@ -119,7 +119,20 @@ void Board::assertBoard()
  *********************************************/
 void Board::move(const Move& move)
 {
+   numMoves++;
 
+   Position source = move.getSource();
+   Position dest = move.getDest();
+
+   (*this)[source].incrementNMoves();
+   (*this)[source].setLastMove(getCurrentMove());
+
+   if (move.getCatpure() != SPACE)
+   {
+      board[dest.getCol()][dest.getRow()] = new Space(dest.getCol(), dest.getRow());
+   }
+
+   std::swap(board[source.getCol()][source.getRow()], board[dest.getCol()][dest.getRow()]);
 }
 
 /**********************************************
