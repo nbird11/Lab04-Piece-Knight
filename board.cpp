@@ -78,7 +78,64 @@ Piece& Board::operator [] (const Position& pos)
 ***********************************************/
 void Board::display(const Position& posHover, const Position& posSelect) const
 {
+   ogstream gout;
 
+   // draw the checkerboard
+   gout.drawBoard();
+
+   // draw any selections
+   gout.drawHover(posHover);
+   gout.drawSelected(posSelect);
+
+   //// draw the possible moves
+   //set <int> ::iterator it;
+   //for (it = possible.begin(); it != possible.end(); ++it)
+   //   gout.drawPossible(*it);
+
+   // draw the pieces
+   for (const auto& row : board)
+      for (const auto& piece : row)
+      {
+         if (piece == nullptr)
+            continue;
+
+         switch (piece->getType())
+         {
+         //case 'P':
+         //   gout.drawPawn(i, true);
+         //   break;
+         //case 'p':
+         //   gout.drawPawn(i, false);
+         //   break;
+         //case 'K':
+         //   gout.drawKing(i, true);
+         //   break;
+         //case 'k':
+         //   gout.drawKing(i, false);
+         //   break;
+         //case 'Q':
+         //   gout.drawQueen(i, true);
+         //   break;
+         //case 'q':
+         //   gout.drawQueen(i, false);
+         //   break;
+         //case 'R':
+         //   gout.drawRook(i, true);
+         //   break;
+         //case 'r':
+         //   gout.drawRook(i, false);
+         //   break;
+         //case 'B':
+         //   gout.drawBishop(i, true);
+         //   break;
+         //case 'b':
+         //   gout.drawBishop(i, false);
+         //   break;
+         case KNIGHT:
+            gout.drawKnight(piece->getPosition(), piece->isWhite());
+            break;
+         }
+      }
 }
 
 /************************************************
@@ -92,6 +149,10 @@ Board::Board(ogstream* pgout, bool noreset) : pgout(pgout), numMoves(0)
       for (int row = 0; row < 8; row++)
          board[col][row] = nullptr;
    }
+   board[1][0] = new Knight(1, 0, false);
+   board[6][0] = new Knight(6, 0, false);
+   board[1][7] = new Knight(1, 7, true);
+   board[6][7] = new Knight(6, 7, true);
 }
 
 /************************************************
