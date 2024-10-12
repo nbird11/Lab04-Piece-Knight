@@ -97,47 +97,9 @@ void Board::display(const Position& posHover, const Position& posSelect) const
    // draw the pieces
    for (const auto& row : board)
       for (const auto& piece : row)
-      {
-         if (piece == nullptr)
-            continue;
+         if (piece != nullptr)
+            piece->display(pgout);
 
-         switch (piece->getType())
-         {
-         //case 'P':
-         //   gout.drawPawn(i, true);
-         //   break;
-         //case 'p':
-         //   gout.drawPawn(i, false);
-         //   break;
-         //case 'K':
-         //   gout.drawKing(i, true);
-         //   break;
-         //case 'k':
-         //   gout.drawKing(i, false);
-         //   break;
-         //case 'Q':
-         //   gout.drawQueen(i, true);
-         //   break;
-         //case 'q':
-         //   gout.drawQueen(i, false);
-         //   break;
-         //case 'R':
-         //   gout.drawRook(i, true);
-         //   break;
-         //case 'r':
-         //   gout.drawRook(i, false);
-         //   break;
-         //case 'B':
-         //   gout.drawBishop(i, true);
-         //   break;
-         //case 'b':
-         //   gout.drawBishop(i, false);
-         //   break;
-         case KNIGHT:
-            pgout->drawKnight(piece->getPosition(), piece->isWhite());
-            break;
-         }
-      }
 }
 
 /************************************************
