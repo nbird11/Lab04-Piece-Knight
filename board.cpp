@@ -82,14 +82,12 @@ Piece& Board::operator [] (const Position& pos)
 ***********************************************/
 void Board::display(const Position& posHover, const Position& posSelect) const
 {
-   ogstream gout;
-
    // draw the checkerboard
-   gout.drawBoard();
+   pgout->drawBoard();
 
    // draw any selections
-   gout.drawHover(posHover);
-   gout.drawSelected(posSelect);
+   pgout->drawHover(posHover);
+   pgout->drawSelected(posSelect);
 
    //// draw the possible moves
    //set <int> ::iterator it;
@@ -136,7 +134,7 @@ void Board::display(const Position& posHover, const Position& posSelect) const
          //   gout.drawBishop(i, false);
          //   break;
          case KNIGHT:
-            gout.drawKnight(piece->getPosition(), piece->isWhite());
+            pgout->drawKnight(piece->getPosition(), piece->isWhite());
             break;
          }
       }
