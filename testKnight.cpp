@@ -169,7 +169,7 @@ void TestKnight::getMoves_capture()
    assertUnit(moves.find(Move("d5e3p")) != moves.end());
 
    // TEARDOWN
-   board.board[3][4] = nullptr; // black knight
+   board.board[3][4] = nullptr; // white knight
    board.board[1][5] = nullptr; // black1
    board.board[2][6] = nullptr; // black2
    board.board[4][6] = nullptr; // black3
@@ -197,8 +197,31 @@ void TestKnight::getMoves_capture()
  **************************************/
 void TestKnight::getMoves_free()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   BoardEmpty board;
+   Knight knight(7, 7, false /*white*/);
+   knight.fWhite = true;
+   knight.position.set(3, 4);
+   board.board[3][4] = &knight;
+   set <Move> moves;
+
+   // EXERCISE
+   knight.getMoves(moves, board);
+
+   // VERIFY
+   assertUnit(moves.size() == 8);
+   assertUnit(moves.find(Move("d5e7")) != moves.end());
+   assertUnit(moves.find(Move("d5c7")) != moves.end());
+   assertUnit(moves.find(Move("d5b6")) != moves.end());
+   assertUnit(moves.find(Move("d5f6")) != moves.end());
+   assertUnit(moves.find(Move("d5b4")) != moves.end());
+   assertUnit(moves.find(Move("d5f4")) != moves.end());
+   assertUnit(moves.find(Move("d5c3")) != moves.end());
+   assertUnit(moves.find(Move("d5e3")) != moves.end());
+
+   // TEARDOWN
+   board.board[3][4] = nullptr;
+}  
 
 
 
@@ -209,5 +232,18 @@ void TestKnight::getMoves_free()
  **************************************/
 void TestKnight::getType()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Knight knight(7, 7, false /*black*/);
+   knight.fWhite = true;
+   knight.position.set(3, 4);
+
+   // EXERCISE
+   PieceType pt = knight.getType();
+
+   // VERIFY
+   assertUnit(pt == PieceType::KNIGHT);
+   assertUnit(knight.fWhite == true);
+   assertUnit(knight.position.getCol() == 3);
+   assertUnit(knight.position.getRow() == 4);
+
 }  // TEARDOWN
