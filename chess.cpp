@@ -61,6 +61,7 @@ int main(int argc, char** argv)
    // Initialize the game class
    ogstream* pgout = new ogstream;
    Board board(pgout);
+   board.reset();
 
    // set everything into action
    ui.run(callBack, (void *)(&board));      

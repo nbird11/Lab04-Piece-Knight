@@ -41,6 +41,10 @@ void Board::reset(bool fFree)
    for (int r = 0; r < 8; r++)
       for (int c = 0; c < 8; c++)
          board[c][r] = nullptr;
+   board[1][0] = new Knight(1, 0, false);
+   board[6][0] = new Knight(6, 0, false);
+   board[1][7] = new Knight(1, 7, true);
+   board[6][7] = new Knight(6, 7, true);
 }
 
 //Board::Board()
@@ -149,10 +153,6 @@ Board::Board(ogstream* pgout, bool noreset) : pgout(pgout), numMoves(0)
       for (int row = 0; row < 8; row++)
          board[col][row] = nullptr;
    }
-   board[1][0] = new Knight(1, 0, false);
-   board[6][0] = new Knight(6, 0, false);
-   board[1][7] = new Knight(1, 7, true);
-   board[6][7] = new Knight(6, 7, true);
 }
 
 /************************************************
@@ -161,7 +161,14 @@ Board::Board(ogstream* pgout, bool noreset) : pgout(pgout), numMoves(0)
  ************************************************/
 void Board::free()
 {
-
+   for (int col = 0; col < 8; col++)
+   {
+      for (int row = 0; row < 8; row++)
+      {
+         delete board[col][row];
+         board[col][row] = nullptr;
+      }
+   }
 }
 
 /**********************************************
